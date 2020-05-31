@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->default(rand());
             $table->text('body');
             $table->unsignedInteger('view')->default(0);
             $table->unsignedInteger('answers')->default(0);
