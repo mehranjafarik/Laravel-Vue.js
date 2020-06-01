@@ -10,7 +10,8 @@ class QuestionsController extends Controller
 {
     public function index()
     {
-        $questions = Question::orderBy('id', 'DESC')->paginate(5);
+//        $questions = Question::orderBy('id', 'DESC')->paginate(10);
+        $questions = Question::with('user')->latest()->paginate(10);
         return view('questions.index', compact('questions'));
     }
 
